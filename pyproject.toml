@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tpm-data"
 version = "0.1.0"
-description = "TPM Data Pipeline"
+description = "TPM Data Pipeline — ingestion, compute, and reporting for trade promotions"
 requires-python = ">=3.10"
 dependencies = [
     "pandas>=2.2.0",
