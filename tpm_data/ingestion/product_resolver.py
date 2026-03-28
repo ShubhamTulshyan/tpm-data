@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from rapidfuzy import fuzz
+from rapidfuzz import fuzz
 
 
 class ProductResolver:
