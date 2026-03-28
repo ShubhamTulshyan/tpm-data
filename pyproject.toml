@@ -1,7 +1,11 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "tpm-data"
 version = "0.1.0"
-description = "TPM Data Pipeline — ingestion, compute, and reporting for trade promotions"
+description = "TPM Data Pipeline"
 requires-python = ">=3.10"
 dependencies = [
     "pandas>=2.2.0",
@@ -9,14 +13,15 @@ dependencies = [
     "openpyxl>=3.1.0",
     "statsmodels>=0.14.0",
     "rapidfuzz>=3.0.0",
-    "supabase>=2.0.0",
-    "asyncpg>=0.30.0",
     "pydantic>=2.0",
     "python-dotenv>=1.0.0",
 ]
 
 [project.optional-dependencies]
 dev = ["ruff>=0.8.0", "pytest>=8.0.0", "pytest-asyncio>=0.24.0"]
+
+[tool.setuptools]
+packages = ["tpm_data", "tpm_data.ingestion", "tpm_data.compute", "tpm_data.reports"]
 
 [tool.ruff]
 target-version = "py310"
