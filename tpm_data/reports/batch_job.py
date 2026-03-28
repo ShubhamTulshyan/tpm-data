@@ -34,7 +34,7 @@ class BatchJob:
         self.status = "running"
 
         try:
-            logger.info(f"Starting batch job: {self.job_name}")
+            logger.info("Starting batch job: %s", self.job_name)
 
             # Pipeline stages would be implemented here
             # 1. Ingestion
@@ -44,13 +44,13 @@ class BatchJob:
 
             self.status = "completed"
             self.end_time = datetime.now()
-            logger.info(f"Batch job completed: {self.job_name}")
+            logger.info("Batch job completed: %s", self.job_name)
             return True
 
-        except Exception as e:
+        except (OSError, ValueError, RuntimeError) as e:
             self.status = "failed"
             self.end_time = datetime.now()
-            logger.error(f"Batch job failed: {self.job_name}", exc_info=e)
+            logger.exception("Batch job failed: %s — %s", self.job_name, e)
             return False
 
     def get_duration(self) -> float:
